@@ -1,0 +1,41 @@
+<%- include("partials/header"); -%>
+
+   <br>
+   <br>
+   <br>
+   <br>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h4 style="text-align: center;">Login Here</h4>
+                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <form name="sentMessage" id="contactForm" method="post" action="/login">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>UserName</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" name="username" required
+                                data-validation-required-message="Please enter your username.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="password" id="phone" name="password"
+                                data-validation-required-message="Please enter your Password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div id="success"  style="text-align: center;">
+                        <p>Dont have an account <a href="/register">register here</a></p>
+                    <button type="submit" class="btn btn-primary " id="sendMessageButton" style="width: 30%;"> Login</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/footer"); -%>

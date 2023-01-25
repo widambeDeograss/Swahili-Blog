@@ -1,0 +1,135 @@
+<%- include("partials/header"); -%>
+<!-- background-image: url('/img/home-bg.jpg') -->
+  <!-- Page Header -->
+  <header class="masthead" style="background-color: #0085A1;">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row" style="display: flex;">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Swahili-Blog</h1>
+            <span class="subheading">A collection Swahili Articles.. </span>
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <form name="sentMessage" action="/findBlogPost" method="post" id="contactForm" enctype="multipart/form-data" novalidate>
+                  <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                          <!-- <label>Search For a blog Post</label> -->
+                          <input type="text" class="form-control" placeholder="Search.. an article" id="name" name="searchterm"  required
+                              data-validation-required-message="Please enter your name.">
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+              </form>
+              <button style="border: #0085A1; border-radius: 15px; background-color: whitesmoke;">Start reading</button>
+            </div>
+          </div>
+        </div>
+        <div class="header-pic">
+          <img  class="head-photo" src='/img/home-bg.jpg' alt="cover photo">
+          </div> 
+      </div>
+    </div>
+  </header>
+ 
+  <!-- Main Content -->
+  <div class="container">
+    <div class="tag" style="display:flex;">
+      <span class="fa-stack fa-sm" style="margin-top: 25px;">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fa fa-history fa-stack-1x fa-inverse"></i>
+      </span>
+      <p>Recent on Swahili-Blog</p>
+      </div> 
+    <div>
+      <div  style="display:flex; flex-direction: row; flex-wrap: wrap; " class="col-12">
+
+        <% for(let a=0; a < posts.length; a++){ %>
+        <div class="post-preview" style="padding: 20px;" >
+          <!-- <a href="{{ url_for('show_post', index=post.id) }}"> -->
+          <div class="post-title">
+              <img src='/img/0119578.jpg' alt="avatar" class="rounded-circle" style="width: 40px;">
+             <span> <%= posts[a].author %></span>
+             <br>
+              <a href="/posts/<%= posts[a].postTitle %>" style="text-decoration: none; margin-left: 10px;"> <strong> <%= posts[a].postTitle %></strong>
+                <br>
+                <span style="font-size:x-small;margin-left: 10px; ">
+                  <%= posts[a].postDate %>
+                </span>
+              </a>
+          </div>
+            
+            <h5 class="post-subtitle">
+              <!-- <% let trancatedbody =  posts[a].postbody.substring(0, 100)%>   
+              <%= trancatedbody + "..."%>
+              <a href="/posts/<%= posts[a].postTitle %>">Read..more</a> -->
+            </h5>
+          </a>
+         
+        </div>
+        <%}%>
+      </div>
+      <br>
+      <hr>
+       <!-- Pager -->
+       <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div style="display: flex; ">
+    <div  style="display:flex; flex-direction:column-reverse; flex-wrap: wrap; margin-left: 60px;" class="col-6">
+
+      <% for(let a=0; a < posts.length; a++){ %>
+      <div class="post-preview" style="padding: 20px; display: inline-flex ;" >
+        <!-- <a href="{{ url_for('show_post', index=post.id) }}"> -->
+          <div class="post-title" style="flex-grow: 1;">
+            <img src='/img/0119578.jpg' alt="avatar" class="rounded-5" style="width: 40px;">
+           <span > <%= posts[a].author %>: in <%= posts[a].postTitle %></span>
+           <br>
+           <h6 class="post-subtitle">
+            <a href="/posts/<%= posts[a].postTitle %>">
+              <%= posts[a].postsubTitle %>
+            </a>
+          </h6>
+           <% let trancatedbody =  posts[a].postbody.substring(0, 40)%>
+            <a href="/posts/<%= posts[a].postTitle %>" style="text-decoration: none; width: 15px; ">  <%= trancatedbody + "   Read..more"%>
+              <br>
+              <% let random =  Math.floor(Math.random() * 10)%>
+              <span style="font-size:x-small; ">
+               created on: <%= posts[a].postDate %> . <%= random %> min read  
+              </span>
+            </a>
+        </div>
+        <div>
+          <img src='\<%= posts[a].postPic %>' alt="storypc" class="rounded-3" style="width: 150px;">
+        </div>
+
+      </div> 
+      <%}%>
+    </div>
+   <div class="col-5">
+    <p>Discover more of what matters</p>
+    <hr>
+    <div >
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Technology</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Swahili Culture</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Swahili Language</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Self Improvement</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Politics</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Productivity</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Writing</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Data</span>
+      <span class="badge badge-light" style="padding: 7px; border:gray solid 1px;">Science</span>
+    </div>
+   
+
+   </div>
+
+  </div>
+  <hr>
+ 
+
+<%- include("partials/footer"); -%>

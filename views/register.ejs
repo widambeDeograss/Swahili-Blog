@@ -1,0 +1,63 @@
+<%- include("partials/header"); -%>
+
+   <br>
+   <br>
+   <br>
+   <br>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h4 style="text-align: center;">Create Account</h4>
+                <h5> </h5>
+                <form name="sentMessage" id="contactForm" method="post" action="/register">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>UserName</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" name="username" required
+                                data-validation-required-message="Please enter your username.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" name="userEmail" required
+                                data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Add you profile (optional)</label>
+                            <input type="text" class="form-control" placeholder="image url" id="phone" name="userProfile"
+                                data-validation-required-message="Please enter your phone number.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>About yourSelf</label>
+                            <textarea rows="5" class="form-control" placeholder="user details" id="message" name="userDetails" required
+                                data-validation-required-message="Please enter your details."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="password" id="phone" name="password"
+                                data-validation-required-message="Please enter your Password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div id="success"  style="text-align: center;">
+                        <p>already have an Account <a href="/login">login here</a></p>
+                    <button type="submit" class="btn btn-primary " id="sendMessageButton" style="width: 30%;"> Register</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/footer"); -%>

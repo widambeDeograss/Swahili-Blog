@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Clean Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/blog.css">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template -->
+ 
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container d-flex" >
+      <img class="rounded-circle shadow-1-strong me-3"
+      src='/img/R.png' alt="avatar" width="40"
+        height="40" />
+      <a class="navbar-brand ml-2" href="/">Swahili-Blog</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <% if (isAuthenticated) { %>
+            <li><a class="nav-link" href="/compose">Compose</a></li>
+            <% } %>
+            <% if (!isAuthenticated) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Sign in</a>
+              </li>
+          <li class="nav-item" style="background-color: #0085A1; border-radius: 15px;">
+            <a class="nav-link" href="/register">Get started</a>
+          </li>
+          <% } else { %>
+            <li class="nav-item">
+              <form action="/logout" method="post">
+                  <button type="submit" class="nav-link" style="background-color: white;border: white;">Logout</button>
+              </form>
+          </li>
+      <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
